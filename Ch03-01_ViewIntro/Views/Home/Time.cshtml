@@ -1,0 +1,149 @@
+﻿@{
+    string head = "Hello METANIT.COM!"; // определяем переменную head
+    string text = "ASP.NET Core Application";   // определяем переменную text
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>METANIT.COM</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>@head</h2>
+    <div>@text</div>
+    <p>Time: @DateTime.Now.ToShortTimeString()</p>
+
+    <p>@@DateTime.Now =@DateTime.Now.ToLongDateString()</p>
+
+    @* сниппет <text> *@
+    @{
+        int i = 8;
+        <text>@i</text>
+    }
+    <text>@(i + 1)</text>
+
+    @* Условные конструкции *@
+    @{
+        string morning = "Good Morning";
+        string evening = "Good Evening";
+        string hello = "Hello";
+        int hour = DateTime.Now.Hour;
+    }
+    @if (hour < 12)
+    {
+        <h2>@morning</h2>
+    }
+    else if (hour > 17)
+    {
+        <h2>@evening</h2>
+    }
+    else
+    {
+        <h2>@hello</h2>
+    }
+
+    @* switch *@
+    @{
+        string language = "russian";
+    }
+    @switch (language)
+    {
+        case "russian":
+            <h3>Привет мир!</h3>
+            break;
+        case "german":
+            <h3>Hallo Welt!</h3>
+            break;
+        default:
+            <h3>Hello World!</h3>
+            break;
+    }
+
+    @* Циклы *@
+    @* for *@
+    @{
+        string[] people = { "Tom", "Sam", "Bob" };
+    }
+    <p> for: </p>
+    <ul>
+        @for (var j = 0; j < people.Length; j++)
+        {
+            <li>@people[j]</li>
+        }
+    </ul>
+
+    @* foreach *@
+    <p> foreach: </p>
+    <ul>
+        @foreach (var person in people)
+        {
+            <li>@person</li>
+        }
+    </ul>
+
+    @* while *@
+    <p> while: </p>
+    @{
+        i = 0;
+    }
+    <ul>
+        @while (i < people.Length)
+        {
+            <li>@people[i++]</li>
+        }
+    </ul>
+
+    @* do .. while *@
+    <p> do .. while: </p>
+
+    @{
+        i = 0;
+    }
+    <ul>
+        @do
+        {
+            <li>@(i * i)</li>
+        }
+        while (i++ < 5);
+    </ul>
+
+    @* try *@
+    <p> try: </p>
+    @try
+    {
+        throw new InvalidOperationException("Something wrong");
+    }
+    catch (Exception ex)
+    {
+        <p>Exception: @ex.Message</p>
+    }
+    finally
+    {
+        <p>finally</p>
+    }
+
+    @* Вывод текста в блоке кода *@
+    <p> Вывод текста в блоке кода </p>
+    @{
+        bool isEnabled = true;
+    }
+    @if (isEnabled)
+    {
+        @: Hello
+    }
+
+    @* функции *@
+    <p> Функции </p>
+    @functions
+    {
+        public int Sum(int a, int b)
+        {
+            return a + b;
+        }
+        public int Square(int n) => n * n;
+    }
+    <p>Sum of 5 and 4: <b> @Sum(5, 4)</b></p>
+    <p>Square of 4: <b>@Square(4)</b></p>
+
+</body>
+</html>
