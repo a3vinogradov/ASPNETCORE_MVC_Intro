@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h3>Index Content</h3>
+<a href="/Home/Hello">Hello</a>
+<br>
+
+<h3>Встраивание Hello с помощью Html.PartialAsync</h3>
+@await Html.PartialAsync("Hello")
+
+<h3>Встраивание Hello с помощью Html.RenderPartialAsync</h3>
+@{
+    await Html.RenderPartialAsync("Hello");
+}
+<h3>Передача параметров во встраиваемые представления</h3>
+
+<h1>Welcome</h1>
+@await Html.PartialAsync("StringList", new List<string>{"Hello", "Привет", "Hallo", "Salut"})
+
+
+@section Footer {
+           Copyright© Metanit.com, @DateTime.Now.Year. All rights reserved
+}

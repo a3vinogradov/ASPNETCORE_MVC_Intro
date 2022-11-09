@@ -1,0 +1,22 @@
+﻿@{
+    string isMarriedStr = ViewBag.IsMarried ? "Да" : "Нет";
+    
+    string languageList = "";
+    foreach (string lang in ViewBag.Languages)
+    {
+        languageList = $"{languageList} {lang};";
+    }
+}
+<h3>Введенные данные</h3>
+<ul>
+    <li> User Name: @ViewBag.username</li>
+    <li> Password: @ViewBag.password</li>
+    <li> Age: @ViewBag.age</li>
+    <li> Comment: @ViewBag.comment</li>
+    <li> IsMarried: @isMarriedStr</li>
+    <li> Color: @ViewBag.Color</li>
+    <li> Language: @ViewBag.Language</li>
+    <li> Languages: @languageList</li>
+
+</ul>
+

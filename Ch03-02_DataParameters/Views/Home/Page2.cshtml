@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "ASP.NET Core MVC (Page2)";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>METANIT.COM</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <h2>Count: @ViewBag.People.Count</h2>
+    <ul>
+        @foreach (string person in ViewBag.People)
+        {
+            <li>@person</li>
+        }
+    </ul>
+</body>
+</html>

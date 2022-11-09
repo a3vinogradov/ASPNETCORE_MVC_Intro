@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "ASP.NET Core MVC (Page3)";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>METANIT.COM</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
+
+    @model List<string>
+
+    <h2>Count: @Model.Count</h2>
+    <ul>
+        @foreach (string person in Model)
+        {
+            <li>@person</li>
+        }
+    </ul>
+</body>
+</html>
